@@ -1,0 +1,87 @@
+@import "reset";
+@import "vars";
+@import "global";
+
+@mixin rwd($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+.nav{
+    width: 100%;
+    max-width: $space-safe;
+    padding: 10px;
+    margin: 30px auto;
+    border-bottom: 2px solid $color;
+
+    &__list{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        @include rwd(991px){
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+    }
+
+    &__item{
+        :hover{
+            background-color: $color;
+            color: #fff;
+            border: 1px solid $color;
+            border-radius: 12px;
+        }
+    }
+
+    &__link{ 
+        padding: 5px;
+        color: $color;
+        text-transform: uppercase;
+    }
+}
+
+// .box{
+//     @include rwd(500px){ background-color: green;
+//     }
+//     @include rwd(1366px){ background-color: blue;
+//     }
+//     @include rwd(1920px){ background-color: yellow;
+//     }
+// }
+
+/* * MEDIA QUERIES on CSS */
+/* Desktop first: 
+@media (max-width: 1920px){
+    .box{ background-color: red;
+    }
+}
+
+@media (max-width: 1366px){
+    .box{ background-color: blue;
+    }
+}
+
+@media (max-width: 991px){
+    .box{ background-color: green;
+    }
+}
+*/
+
+/* Mobile first 
+// @media (min-width: 991px){
+//     .box{ background-color: green;
+//     }
+// }
+
+// @media (min-width: 1366px){
+//     .box{ background-color: blue;
+//     }
+// }
+
+// @media (min-width: 1920px){
+//     .box{ background-color: yellow;
+//     }
+// }
+*/
